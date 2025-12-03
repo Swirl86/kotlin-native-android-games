@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/turnTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.1"
+        android:shadowColor="#888888"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textAlignment="center"
+        android:textColor="#FF5722"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        tools:text="Turn X" />
+
+    <GridLayout
+        android:id="@+id/grid_tictactoe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:background="#000000"
+        android:padding="5dp">
+
+    <include
+            android:id="@+id/btn_0"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_1"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_2"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_3"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_4"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_5"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_6"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_7"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+        <include
+            android:id="@+id/btn_8"
+            layout="@layout/tictactoe_cell"
+            android:layout_margin="1dp"/>
+    </GridLayout>
+</LinearLayout>
