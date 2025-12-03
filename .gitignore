@@ -1,34 +1,91 @@
+# =========================
+# Android / Kotlin gitignore
+# =========================
+
+# -------------------------
 # Gradle files
+# -------------------------
 .gradle/
 build/
+**/build/
 
-# Local configuration file (sdk path, etc)
-local.properties
+# -------------------------
+# Local configuration files
+# -------------------------
+local.properties      # SDK path etc.
+*.local
 
-# Log/OS Files
-*.log
-
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
-
-# IntelliJ
-*.iml
+# -------------------------
+# Android Studio generated files
+# -------------------------
 .idea/
+*.iml
+*.ipr
+*.iws
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
 
+# -------------------------
+# Generated output / build artifacts
+# -------------------------
+captures/
+.externalNativeBuild/
+.cxx/
+output-metadata.json
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+*.so
+obj/
+jniLibs/
+*.zip
+*.7z
+*.tar.gz
+*.tar
+
+# -------------------------
 # Keystore files
+# -------------------------
 *.jks
 *.keystore
+key.properties
 
-# Google Services (e.g. APIs or Firebase)
+# -------------------------
+# Google Services / Firebase
+# -------------------------
 google-services.json
+fabric.properties
 
-# Android Profiling
+# -------------------------
+# Logs / Profiling
+# -------------------------
+*.log
 *.hprof
+test-results/
+
+# -------------------------
+# OS-specific files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Kotlin / Android metadata
+# -------------------------
+*.kotlin_metadata
+nav_graph.xml
+*.preview
+
+# -------------------------
+# Cache / IntelliJ / Android Studio
+# -------------------------
+out/
+gradle-app.setting
+
+# -------------------------
+# Optional / Release folders
+# -------------------------
+release/
