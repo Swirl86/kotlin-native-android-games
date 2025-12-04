@@ -14,6 +14,16 @@ class TicTacToeGame {
         return true
     }
 
+    fun makeAIMove() {
+        if (winner != null) return
+        val emptyCells = board.mapIndexedNotNull { index, cell -> if (cell.isEmpty()) index else null }
+        if (emptyCells.isNotEmpty()) {
+            val position = emptyCells.random()
+            makeMove(position)
+        }
+    }
+
+
     private fun checkWinner() {
         val lines = arrayOf(
             intArrayOf(0,1,2), intArrayOf(3,4,5), intArrayOf(6,7,8), // rows

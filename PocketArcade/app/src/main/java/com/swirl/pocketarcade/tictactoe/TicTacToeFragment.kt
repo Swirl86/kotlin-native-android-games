@@ -11,8 +11,16 @@ import com.swirl.pocketarcade.utils.extensions.combineWith
 
 class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
 
-    private val viewModel: TicTacToeViewModel by viewModels()
+    private val viewModel: TicTacToeViewModel by viewModels {
+        val args = TicTacToeFragmentArgs.fromBundle(requireArguments())
+        TicTacToeViewModelFactory(args.numPlayers)
+    }
     private val buttons = arrayListOf<Button>()
+    private val buttonIds = arrayOf(
+        R.id.btn_0, R.id.btn_1, R.id.btn_2,
+        R.id.btn_3, R.id.btn_4, R.id.btn_5,
+        R.id.btn_6, R.id.btn_7, R.id.btn_8
+    )
     private lateinit var turnTextView: TextView
     private lateinit var resetButton: Button
 
@@ -21,9 +29,8 @@ class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
         turnTextView = view.findViewById(R.id.turnTV)
         resetButton = view.findViewById(R.id.btn_reset)
 
-        for (i in 0..8) {
-            val resId = resources.getIdentifier("btn_$i", "id", requireContext().packageName)
-            val button = view.findViewById<Button>(resId)
+        for (i in buttonIds.indices) {
+            val button = view.findViewById<Button>(buttonIds[i])
             buttons.add(button)
             button.setOnClickListener {
                 viewModel.makeMove(i)

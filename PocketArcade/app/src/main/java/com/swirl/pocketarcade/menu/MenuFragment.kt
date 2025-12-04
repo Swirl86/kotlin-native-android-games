@@ -12,7 +12,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<View>(R.id.btn_tictactoe).setOnClickListener {
-            findNavController().navigate(R.id.action_menu_to_tictactoe)
+            findNavController().navigate(R.id.action_menu_to_playerSetup)
         }
     }
 }
