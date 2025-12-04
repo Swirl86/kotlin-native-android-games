@@ -73,4 +73,11 @@
             layout="@layout/tictactoe_cell"
             android:layout_margin="1dp"/>
     </GridLayout>
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart"
+        android:layout_marginTop="24dp"/>
 </LinearLayout>

@@ -4,21 +4,22 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.swirl.pocketarcade.R
+import com.swirl.pocketarcade.utils.extensions.combineWith
 
 class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
 
     private val viewModel: TicTacToeViewModel by viewModels()
     private val buttons = arrayListOf<Button>()
     private lateinit var turnTextView: TextView
+    private lateinit var resetButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         turnTextView = view.findViewById(R.id.turnTV)
+        resetButton = view.findViewById(R.id.btn_reset)
 
         for (i in 0..8) {
             val resId = resources.getIdentifier("btn_$i", "id", requireContext().packageName)
@@ -29,20 +30,19 @@ class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
             }
         }
 
-        viewModel.board.observe(viewLifecycleOwner, Observer { board ->
+        viewModel.board.observe(viewLifecycleOwner) { board ->
             for (i in board.indices) {
                 buttons[i].text = board[i]
             }
-        })
+        }
 
-        viewModel.winner.observe(viewLifecycleOwner, Observer { winner ->
-            winner?.let {
-                Toast.makeText(requireContext(), "${it.name} vann!", Toast.LENGTH_SHORT).show()
+        viewModel.currentPlayer.combineWith(viewModel.winner)
+            .observe(viewLifecycleOwner) { (player, winner) ->
+                turnTextView.text = winner?.let { "${it.name} won!" } ?: "Turn ${player?.name}"
             }
-        })
 
-        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer { player ->
-            turnTextView.text = "Turn ${player.name}"
-        })
+        resetButton.setOnClickListener {
+            viewModel.resetGame()
+        }
     }
 }

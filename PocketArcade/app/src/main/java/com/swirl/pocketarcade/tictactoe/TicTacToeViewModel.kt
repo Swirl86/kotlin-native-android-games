@@ -14,7 +14,7 @@ class TicTacToeViewModel : ViewModel() {
     private val _currentPlayer = MutableLiveData(game.currentPlayer)
     val currentPlayer: LiveData<TicTacToeGame.Player> = _currentPlayer
 
-    private val _winner = MutableLiveData<TicTacToeGame.Player?>(null)
+    private val _winner = MutableLiveData<TicTacToeGame.Player?>(game.winner)
     val winner: LiveData<TicTacToeGame.Player?> = _winner
 
     fun makeMove(position: Int) {
