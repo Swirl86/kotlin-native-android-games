@@ -5,6 +5,9 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        viewBinding = true
+    }
     namespace = "com.swirl.pocketarcade"
     compileSdk {
         version = release(36)
