@@ -9,8 +9,7 @@ class TicTacToeGame {
     var winner: Player? = null
 
     init {
-        // Randomize who starts
-        currentPlayer = if ((0..1).random() == 0) Player.X else Player.O
+        currentPlayer = getRandomStartPlayer()
     }
 
     fun makeMove(position: Int): Boolean {
@@ -35,7 +34,9 @@ class TicTacToeGame {
 
     fun reset() {
         board = Array(9) { "" }
-        currentPlayer = Player.X
+        currentPlayer = getRandomStartPlayer()
         winner = null
     }
+
+    private fun getRandomStartPlayer(): Player = if ((0..1).random() == 0) Player.X else Player.O
 }
