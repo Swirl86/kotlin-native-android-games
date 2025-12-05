@@ -1,6 +1,7 @@
 package com.swirl.pocketarcade.ai
 
-import com.swirl.pocketarcade.tictactoe.TicTacToeGame
+import TicTacToeGame
+import com.swirl.pocketarcade.tictactoe.model.Moves
 import com.swirl.pocketarcade.utils.TicTacToeUtils
 import kotlinx.coroutines.*
 
@@ -20,47 +21,29 @@ class TicTacToeAI(private val game: TicTacToeGame, private val onMoveMade: () ->
     fun makeMove() {
         if (game.winner != null) return
 
-        // Delay to simulate thinking
         scope.launch {
-            delay(500L) // 0.5 second delay
+            delay(500L)
 
-            // Try winning move
-            val winMove = findWinningMove(game.currentPlayer)
-            if (winMove != -1) {
-                game.makeMove(winMove)
-                onMoveMade();
-                return@launch
-            }
+            val winMove = findWinningMove(game.currentPlayer.mark)
+            if (winMove != -1) { game.makeMove(winMove); onMoveMade(); return@launch }
 
-            // Try blocking opponent
-            val opponent = if (game.currentPlayer == TicTacToeGame.Player.X)
-                TicTacToeGame.Player.O else TicTacToeGame.Player.X
-            val blockMove = findWinningMove(opponent)
-            if (blockMove != -1) {
-                game.makeMove(blockMove)
-                onMoveMade();
-                return@launch
-            }
+            val opponentMark = if (game.currentPlayer.mark == Moves.X) Moves.O else Moves.X
+            val blockMove = findWinningMove(opponentMark)
+            if (blockMove != -1) { game.makeMove(blockMove); onMoveMade(); return@launch }
 
-            // Else, random move
-            val emptyCells = game.board.mapIndexedNotNull { index, cell ->
-                if (cell.isEmpty()) index else null
-            }
+            val emptyCells = game.board.mapIndexedNotNull { index, cell -> if (cell.isEmpty()) index else null }
             if (emptyCells.isNotEmpty()) {
-                val position = emptyCells.random()
-                game.makeMove(position)
-                onMoveMade();
+                game.makeMove(emptyCells.random())
+                onMoveMade()
             }
         }
     }
 
-    // Returns the index of a winning move for the given player, or -1 if none
-    private fun findWinningMove(player: TicTacToeGame.Player): Int {
+    private fun findWinningMove(mark: Moves): Int {
         for (line in TicTacToeUtils.WINNING_LINES) {
             val (a, b, c) = line
             val values = arrayOf(game.board[a], game.board[b], game.board[c])
-            // If two are the player's and the third is empty, that's a winning/block move
-            if (values.count { it == player.name } == 2 && values.count { it.isEmpty() } == 1) {
+            if (values.count { it == mark.name } == 2 && values.count { it.isEmpty() } == 1) {
                 return line[values.indexOf("")]
             }
         }

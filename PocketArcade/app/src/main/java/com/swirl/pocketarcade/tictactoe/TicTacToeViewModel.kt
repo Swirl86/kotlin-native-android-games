@@ -1,15 +1,19 @@
 package com.swirl.pocketarcade.tictactoe
 
+import TicTacToeGame
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.swirl.pocketarcade.ai.TicTacToeAI
+import com.swirl.pocketarcade.tictactoe.model.Player
+import com.swirl.pocketarcade.tictactoe.model.PlayerType
 
 class TicTacToeViewModel(
-    val numPlayers: Int = 1 // 1 = vs AI, 2 = two players
+    player1: Player,
+    player2: Player
 ) : ViewModel() {
 
-    private val game = TicTacToeGame()
+    private val game = TicTacToeGame(player1, player2)
     private val ai = TicTacToeAI(game) {
         updateLiveData()
         updateTurnStates()
@@ -20,29 +24,23 @@ class TicTacToeViewModel(
     val board: LiveData<Array<String>> = _board
 
     private val _currentPlayer = MutableLiveData(game.currentPlayer)
-    val currentPlayer: LiveData<TicTacToeGame.Player> = _currentPlayer
+    val currentPlayer: LiveData<Player> = _currentPlayer
 
-    private val _winner = MutableLiveData<TicTacToeGame.Player?>(game.winner)
-    val winner: LiveData<TicTacToeGame.Player?> = _winner
+    private val _winner = MutableLiveData(game.winner)
+    val winner: LiveData<Player?> = _winner
 
-    private val _isPlayerTurn = MutableLiveData<Boolean>(false)
-
-    private val _isAiTurn = MutableLiveData<Boolean>(false)
+    private val _isPlayerTurn = MutableLiveData(false)
+    private val _isAiTurn = MutableLiveData(false)
 
     init {
         updateTurnStates()
         if (_isAiTurn.value == true) makeAiMove()
     }
 
-    /** Updates turn state for both player and AI */
     private fun updateTurnStates() {
         val current = game.currentPlayer
-
-        _isPlayerTurn.value =
-            (numPlayers == 2 || current == TicTacToeGame.Player.X)
-
-        _isAiTurn.value =
-            (numPlayers == 1 && current == TicTacToeGame.Player.O)
+        _isPlayerTurn.value = current.type == PlayerType.HUMAN
+        _isAiTurn.value = current.type == PlayerType.AI
     }
 
     private fun updateLiveData() {
@@ -63,16 +61,13 @@ class TicTacToeViewModel(
         updateLiveData()
         updateTurnStates()
 
-        if (_isAiTurn.value == true && game.winner == null) {
-            makeAiMove()
-        }
+        if (_isAiTurn.value == true && game.winner == null) makeAiMove()
     }
 
     fun resetGame() {
         game.reset()
         updateLiveData()
         updateTurnStates()
-
         if (_isAiTurn.value == true) makeAiMove()
     }
 }
