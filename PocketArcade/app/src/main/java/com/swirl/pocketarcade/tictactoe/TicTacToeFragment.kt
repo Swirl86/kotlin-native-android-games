@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.swirl.pocketarcade.R
 import com.swirl.pocketarcade.databinding.FragmentTicTacToeBinding
-import com.swirl.pocketarcade.tictactoe.model.Moves
 import com.swirl.pocketarcade.tictactoe.model.Player
-import com.swirl.pocketarcade.tictactoe.model.PlayerType
 import com.swirl.pocketarcade.utils.extensions.combineWith
 
 class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
@@ -19,20 +17,8 @@ class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
 
     private val viewModel: TicTacToeViewModel by viewModels {
         val args = TicTacToeFragmentArgs.fromBundle(requireArguments())
-        val player1 = Player(
-            id = 1,
-            type = PlayerType.valueOf(args.player1Type),
-            mark = Moves.valueOf(args.player1Mark),
-            defaultName = args.player1Name,
-            name = args.player1Name
-        )
-        val player2 = Player(
-            id = 2,
-            type = PlayerType.valueOf(args.player2Type),
-            mark = Moves.valueOf(args.player2Mark),
-            defaultName = args.player2Name,
-            name = args.player2Name
-        )
+        val player1: Player = args.player1
+        val player2: Player = args.player2
         TicTacToeViewModelFactory(player1, player2)
     }
 

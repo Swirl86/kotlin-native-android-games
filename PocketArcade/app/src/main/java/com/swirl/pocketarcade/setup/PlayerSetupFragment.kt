@@ -52,13 +52,8 @@ class PlayerSetupFragment : Fragment(R.layout.fragment_player_setup) {
         // Start game button
         binding.btnStartGame.setOnClickListener {
             val action = PlayerSetupFragmentDirections.actionPlayerSetupToTicTacToe(
-                numPlayers = viewModel.numPlayers.value ?: 1,
-                player1Name = viewModel.player1.value!!.name,
-                player1Mark = viewModel.player1.value!!.mark.name,
-                player1Type = viewModel.player1.value!!.type.name,
-                player2Name = viewModel.player2.value!!.name,
-                player2Mark = viewModel.player2.value!!.mark.name,
-                player2Type = viewModel.player2.value!!.type.name
+                player1 = viewModel.player1.value!!,
+                player2 = viewModel.player2.value!!
             )
             findNavController().navigate(action)
         }
