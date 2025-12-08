@@ -9,4 +9,6 @@
     <string name="player_2_name">Player 2 Name</string>
     <string name="start_game">Start Game</string>
     <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="tic_tac_toe_title">Tic-Tac-Toe</string>
+    <string name="restart">Restart</string>
 </resources>
