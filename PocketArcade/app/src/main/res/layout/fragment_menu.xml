@@ -1,16 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="32dp">
+    android:padding="32dp"
+    android:background="#050543">
 
-    <Button
-        android:id="@+id/btn_tictactoe"
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tic_tac_toe"/>
+        android:text="PocketArcade"
+        android:textColor="#00FFAA"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/pixelify_family"
+        android:paddingBottom="40dp" />
+
+    <!-- Tic Tac Toe -->
+    <Button
+        android:id="@+id/btn_tictactoe"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Tic Tac Toe"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/pixelify_family"
+        android:background="@drawable/btn_arcade"
+        android:textColor="#00FFAA"
+        android:padding="12dp" />
+
+    <!-- Dummy buttons -->
+    <Button
+        android:id="@+id/btn_dummy1"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Coming soon..."
+        android:enabled="false"
+        android:fontFamily="@font/pixelify_family"
+        android:textColor="#666"
+        android:background="#333"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_dummy2"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Coming soon..."
+        android:enabled="false"
+        android:fontFamily="@font/pixelify_family"
+        android:textColor="#666"
+        android:background="#333"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btn_dummy3"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Coming soon..."
+        android:enabled="false"
+        android:fontFamily="@font/pixelify_family"
+        android:textColor="#666"
+        android:background="#333"
+        android:layout_marginTop="12dp" />
 
 </LinearLayout>

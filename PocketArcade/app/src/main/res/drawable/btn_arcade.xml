@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pressed state with glow + scale -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#222" />
+            <corners android:radius="12dp" />
+
+            <padding
+                android:left="16dp"
+                android:top="12dp"
+                android:right="16dp"
+                android:bottom="12dp" />
+
+            <!-- Glow when pressed -->
+            <stroke android:width="3dp" android:color="#00FFCC" />
+        </shape>
+    </item>
+
+    <!-- Default -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#2A2A2A" />
+            <corners android:radius="12dp" />
+
+            <padding
+                android:left="16dp"
+                android:top="12dp"
+                android:right="16dp"
+                android:bottom="12dp" />
+
+            <!-- Subtle glow -->
+            <stroke android:width="2dp" android:color="#009977" />
+        </shape>
+    </item>
+
+</selector>
