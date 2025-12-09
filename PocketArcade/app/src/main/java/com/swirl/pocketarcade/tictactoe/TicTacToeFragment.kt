@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.swirl.pocketarcade.R
 import com.swirl.pocketarcade.databinding.FragmentTicTacToeBinding
 import com.swirl.pocketarcade.tictactoe.model.Player
@@ -32,6 +33,11 @@ class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentTicTacToeBinding.bind(view)
+
+        val closeButton = binding.btnClose
+        closeButton.setOnClickListener {
+            findNavController().navigate(R.id.action_ticTacToeFragment_to_menuFragment)
+        }
 
         // Init buttons
         for (i in buttonIds.indices) {

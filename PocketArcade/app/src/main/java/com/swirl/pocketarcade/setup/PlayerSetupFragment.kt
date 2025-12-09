@@ -21,6 +21,11 @@ class PlayerSetupFragment : Fragment(R.layout.fragment_player_setup) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPlayerSetupBinding.bind(view)
 
+        val closeButton = binding.btnClose
+        closeButton.setOnClickListener {
+            findNavController().navigate(R.id.action_playerSetup_to_menuFragment)
+        }
+
         // Observers
         viewModel.player1.observe(viewLifecycleOwner) { player ->
             if (binding.etPlayer1Name.text.toString() != player.name)

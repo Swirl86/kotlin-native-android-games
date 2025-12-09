@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,11 +9,17 @@
     android:padding="32dp"
     tools:context=".setup.PlayerSetupFragment">
 
+    <!-- Centered Content -->
     <LinearLayout
+        android:id="@+id/linear_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             style="@style/ArcadeTitle"
@@ -23,64 +30,76 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="4"
-            android:text="@string/number_of_players"/>
+            android:text="@string/number_of_players" />
 
         <RadioGroup
             android:id="@+id/rgPlayerCount"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
 
             <RadioButton
-                style="@style/ArcadeTextSmall"
                 android:id="@+id/rbSinglePlayer"
-                android:text="@string/one_player"
-                android:checked="true"
+                style="@style/ArcadeTextSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/one_player" />
 
             <RadioButton
-                style="@style/ArcadeTextSmall"
                 android:id="@+id/rbTwoPlayers"
-                android:text="@string/two_players"
+                style="@style/ArcadeTextSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@string/two_players" />
         </RadioGroup>
 
         <EditText
-            style="@style/ArcadeText"
             android:id="@+id/etPlayer1Name"
-            android:hint="@string/player_1_name"
-            android:textColorHint="#75C5C5"
+            style="@style/ArcadeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textColor="#FFFFFF"
             android:backgroundTint="#FF00FF"
+            android:hint="@string/player_1_name"
             android:padding="12dp"
-            android:textSize="18sp"/>
+            android:textColor="#FFFFFF"
+            android:textColorHint="#75C5C5"
+            android:textSize="18sp" />
 
         <EditText
-            style="@style/ArcadeText"
             android:id="@+id/etPlayer2Name"
-            android:hint="@string/player_2_name"
+            style="@style/ArcadeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:enabled="false"
-            android:textColor="#AAAAAA"
             android:backgroundTint="#FF00FF"
+            android:enabled="false"
+            android:hint="@string/player_2_name"
             android:padding="12dp"
+            android:textColor="#AAAAAA"
             android:textSize="18sp"
-            tools:text="AI Bot"/>
+            tools:text="AI Bot" />
 
         <Button
             android:id="@+id/btnStartGame"
+            style="@style/ArcadeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/start_game"
-            style="@style/ArcadeButton"/>
+            android:text="@string/start_game" />
     </LinearLayout>
-</ScrollView>
+
+    <!-- Close Button top-right -->
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_close_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_close"
+        android:contentDescription="@string/close_game"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

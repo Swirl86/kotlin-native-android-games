@@ -1,14 +1,19 @@
 <resources>
     <string name="app_name">PocketArcade</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Game Setup -->
     <string name="number_of_players">Number of Players</string>
     <string name="one_player">1 Player</string>
     <string name="two_players">2 Players</string>
     <string name="player_1_name">Player 1 Name</string>
     <string name="player_2_name">Player 2 Name</string>
-    <string name="start_game">Start Game</string>
+
+    <!-- Tic Tac Toe -->
     <string name="tic_tac_toe">Tic Tac Toe</string>
     <string name="tic_tac_toe_title">Tic-Tac-Toe</string>
+
+    <!-- Buttons -->
+    <string name="start_game">Start Game</string>
     <string name="restart">Restart</string>
+    <string name="close_game">Close Game</string>
 </resources>
