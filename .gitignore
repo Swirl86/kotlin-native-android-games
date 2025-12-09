@@ -8,11 +8,12 @@
 .gradle/
 build/
 **/build/
+gradle-app.setting
 
 # -------------------------
 # Local configuration files
 # -------------------------
-local.properties      # SDK path etc.
+local.properties
 *.local
 
 # -------------------------
@@ -25,6 +26,7 @@ local.properties      # SDK path etc.
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
+out/
 
 # -------------------------
 # Generated output / build artifacts
@@ -40,7 +42,6 @@ output-metadata.json
 *.class
 *.so
 obj/
-jniLibs/
 *.zip
 *.7z
 *.tar.gz
@@ -75,15 +76,7 @@ Thumbs.db
 # -------------------------
 # Kotlin / Android metadata
 # -------------------------
-*.kotlin_metadata
-nav_graph.xml
-*.preview
-
-# -------------------------
-# Cache / IntelliJ / Android Studio
-# -------------------------
-out/
-gradle-app.setting
+*.preview   # Compose preview cache
 
 # -------------------------
 # Optional / Release folders
