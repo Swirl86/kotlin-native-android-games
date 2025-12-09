@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <!-- MenuFragment -->
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.swirl.pocketarcade.menu.MenuFragment"
+        android:label="Menu">
+        <action
+            android:id="@+id/action_menu_to_playerSetup"
+            app:destination="@id/playerSetupFragment"/>
+    </fragment>
+
+    <!-- PlayerSetupFragment -->
+    <fragment
+        android:id="@+id/playerSetupFragment"
+        android:name="com.swirl.pocketarcade.setup.PlayerSetupFragment"
+        android:label="Player Setup">
+        <action
+            android:id="@+id/action_playerSetup_to_ticTacToe"
+            app:destination="@id/ticTacToeFragment">
+            <argument
+                android:name="player1"
+                app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+            <argument
+                android:name="player2"
+                app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+        </action>
+        <action
+            android:id="@+id/action_playerSetup_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <!-- TicTacToeFragment -->
+    <fragment
+        android:id="@+id/ticTacToeFragment"
+        android:name="com.swirl.pocketarcade.tictactoe.TicTacToeFragment"
+        android:label="Tic Tac Toe">
+        <argument
+            android:name="player1"
+            app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+        <argument
+            android:name="player2"
+            app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+        <action
+            android:id="@+id/action_ticTacToeFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+</navigation>
