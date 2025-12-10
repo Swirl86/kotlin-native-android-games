@@ -31,6 +31,14 @@
         android:text="@string/tic_tac_toe"
         style="@style/ArcadeButton"/>
 
+    <Button
+        android:id="@+id/btn_hangman"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hangman"
+        android:layout_marginTop="16dp"
+        style="@style/ArcadeButton"/>
+
     <!-- Dummy buttons -->
     <Button
         android:id="@+id/btn_dummy1"
@@ -44,16 +52,6 @@
 
     <Button
         android:id="@+id/btn_dummy2"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:text="Coming soon..."
-        android:enabled="false"
-        android:background="#333"
-        android:layout_marginTop="12dp"
-        style="@style/ArcadeText" />
-
-    <Button
-        android:id="@+id/btn_dummy3"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:text="Coming soon..."

@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_menu_to_playerSetup"
             app:destination="@id/playerSetupFragment"/>
+        <action
+            android:id="@+id/action_menu_to_hangman"
+            app:destination="@id/hangmanFragment" />
     </fragment>
 
     <!-- PlayerSetupFragment -->
@@ -49,4 +52,10 @@
             android:id="@+id/action_ticTacToeFragment_to_menuFragment"
             app:destination="@id/menuFragment"/>
     </fragment>
+
+    <!-- HangmanFragment -->
+    <fragment
+        android:id="@+id/hangmanFragment"
+        android:name="com.swirl.pocketarcade.hangman.HangmanFragment"
+        android:label="Hangman" />
 </navigation>
