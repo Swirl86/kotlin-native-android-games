@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.swirl.pocketarcade.R
 import com.swirl.pocketarcade.databinding.FragmentTicTacToeBinding
 import com.swirl.pocketarcade.tictactoe.model.Player
-import com.swirl.pocketarcade.utils.extensions.combineWith
 
 class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
 
@@ -52,10 +51,13 @@ class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
             }
         }
 
-        viewModel.currentPlayer.combineWith(viewModel.winner)
-            .observe(viewLifecycleOwner) { (player, winner) ->
-                binding.turnTV.text = winner?.let { "${it.name} won!" } ?: "Turn ${player?.name}"
+        viewModel.gameTurnState.observe(viewLifecycleOwner) { (player, winner, isFull) ->
+            binding.turnTV.text = when {
+                winner != null -> "${winner.name} won!"
+                isFull == true -> "Game over - it's a draw!"
+                else -> "Turn ${player?.name}"
             }
+        }
 
         binding.btnReset.setOnClickListener { viewModel.resetGame() }
     }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.swirl.pocketarcade.ai.TicTacToeAI
 import com.swirl.pocketarcade.tictactoe.model.Player
 import com.swirl.pocketarcade.tictactoe.model.PlayerType
+import com.swirl.pocketarcade.utils.components.combineLiveData
 
 class TicTacToeViewModel(
     player1: Player,
@@ -17,11 +18,15 @@ class TicTacToeViewModel(
     private val ai = TicTacToeAI(game) {
         updateLiveData()
         updateTurnStates()
+        updateBoardState()
         _isPlayerTurn.value = true
     }
 
     private val _board = MutableLiveData(game.board.copyOf())
     val board: LiveData<Array<String>> = _board
+
+    private val _isBoardFull = MutableLiveData(false)
+    val isBoardFull: LiveData<Boolean> = _isBoardFull
 
     private val _currentPlayer = MutableLiveData(game.currentPlayer)
     val currentPlayer: LiveData<Player> = _currentPlayer
@@ -32,9 +37,18 @@ class TicTacToeViewModel(
     private val _isPlayerTurn = MutableLiveData(false)
     private val _isAiTurn = MutableLiveData(false)
 
+    val gameTurnState: LiveData<Triple<Player?, Player?, Boolean?>> =
+        combineLiveData(currentPlayer, winner, isBoardFull)
+
     init {
         updateTurnStates()
+        updateBoardState()
         if (_isAiTurn.value == true) makeAiMove()
+    }
+
+    private fun updateBoardState() {
+        val boardArray = _board.value ?: return
+        _isBoardFull.value = boardArray.none { it.isEmpty() }
     }
 
     private fun updateTurnStates() {
@@ -60,6 +74,7 @@ class TicTacToeViewModel(
 
         updateLiveData()
         updateTurnStates()
+        updateBoardState()
 
         if (_isAiTurn.value == true && game.winner == null) makeAiMove()
     }
@@ -68,6 +83,7 @@ class TicTacToeViewModel(
         game.reset()
         updateLiveData()
         updateTurnStates()
+        _isBoardFull.value = false
         if (_isAiTurn.value == true) makeAiMove()
     }
 }
