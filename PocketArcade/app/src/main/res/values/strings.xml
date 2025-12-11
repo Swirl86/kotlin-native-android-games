@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">PocketArcade</string>
 
+    <!-- Game Global -->
+    <string name="you_won">You won!</string>
+    <string name="game_over">Game over!</string>
+
     <!-- Game Setup -->
     <string name="number_of_players">Number of Players</string>
     <string name="one_player">1 Player</string>
