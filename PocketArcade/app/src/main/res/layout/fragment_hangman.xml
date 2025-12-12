@@ -1,62 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#050543"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="32dp">
+    android:layout_height="match_parent">
 
-    <!-- Hangman drawing -->
-    <ImageView
-        android:id="@+id/iv_hangman"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:contentDescription="@string/hangman_image"
-        android:layout_marginBottom="24dp"/>
+        android:layout_height="match_parent"
+        android:background="#050543"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="32dp">
 
-    <!-- Word -->
-    <TextView
-        android:id="@+id/tv_word"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="_ _ _ _ _"
-        android:textColor="#FFF"
-        android:textSize="36sp"
-        android:textStyle="bold" />
-
-    <!-- Guessed letters -->
-    <TextView
-        android:id="@+id/tv_guessed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textColor="#FFF"
-        android:textSize="18sp"
-        tools:text="Guessed: " />
-
-    <!-- Letter buttons -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <GridLayout
-            android:id="@+id/grid_letters"
+        <!-- Hangman drawing -->
+        <ImageView
+            android:id="@+id/iv_hangman"
             android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/hangman_image" />
+
+        <!-- Word -->
+        <TextView
+            android:id="@+id/tv_word"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:columnCount="6"
-            android:rowCount="6"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"/>
-    </ScrollView>
+            android:layout_marginBottom="24dp"
+            android:text="_ _ _ _ _"
+            android:textColor="#FFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
-    <!-- Reset button -->
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/restart"
-        android:textColor="#FFF" />
+        <!-- Guessed letters -->
+        <TextView
+            android:id="@+id/tv_guessed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            tools:text="Guessed: " />
 
-</LinearLayout>
+        <!-- Letter buttons -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <GridLayout
+                android:id="@+id/grid_letters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:columnCount="6"
+                android:orientation="horizontal"
+                android:rowCount="6" />
+        </ScrollView>
+
+        <!-- Reset button -->
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/restart"
+            android:textColor="#FFF" />
+
+    </LinearLayout>
+
+    <!-- Close button top-right -->
+    <ImageButton
+        android:id="@+id/btn_close"
+        style="@style/Widget.App.CloseButton"
+        android:layout_margin="32dp"
+        android:layout_gravity="top|end"
+        android:contentDescription="@string/close_game"/>
+</FrameLayout>

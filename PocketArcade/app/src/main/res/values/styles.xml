@@ -41,4 +41,14 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <!-- App components -->
+    <style name="Widget.App.CloseButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/btn_close_bg</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:src">@drawable/ic_close</item>
+        <item name="android:contentDescription">@string/close_game</item>
+    </style>
+
 </resources>

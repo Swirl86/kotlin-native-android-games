@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.swirl.pocketarcade.R
 import com.swirl.pocketarcade.databinding.FragmentHangmanBinding
 import com.swirl.pocketarcade.utils.HangmanUtils
@@ -34,9 +35,17 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
             viewModel.resetGame()
             resetLetterButtons()
         }
+
+        binding.btnClose.setOnClickListener {
+            findNavController().navigate(R.id.action_hangmanFragment_to_menuFragment)
+        }
     }
 
     private fun setupObservers() {
+        viewModel.visibleParts.observe(viewLifecycleOwner) { parts ->
+            hangmanDrawable.setVisibleParts(parts)
+        }
+
         viewModel.status.observe(viewLifecycleOwner, Observer { status ->
             binding.tvWord.text = status.currentProgress
             binding.tvGuessed.text = getString(
@@ -48,10 +57,6 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
             // Disable all letters if game over
             for (i in 0 until binding.gridLetters.childCount) {
                 binding.gridLetters.getChildAt(i).isEnabled = !status.isGameOver
-            }
-
-            viewModel.visibleParts.observe(viewLifecycleOwner) { parts ->
-                hangmanDrawable.setVisibleParts(parts)
             }
 
             if (status.isGameOver) {

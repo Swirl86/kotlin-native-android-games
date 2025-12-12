@@ -57,5 +57,9 @@
     <fragment
         android:id="@+id/hangmanFragment"
         android:name="com.swirl.pocketarcade.hangman.HangmanFragment"
-        android:label="Hangman" />
+        android:label="Hangman">
+        <action
+            android:id="@+id/action_hangmanFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
 </navigation>
