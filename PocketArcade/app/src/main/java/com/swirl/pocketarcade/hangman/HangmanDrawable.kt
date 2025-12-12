@@ -2,7 +2,9 @@ package com.swirl.pocketarcade.hangman
 
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.ColorFilter
 import android.graphics.Paint
+import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import com.swirl.pocketarcade.hangman.model.HangmanPart
 
@@ -48,6 +50,7 @@ class HangmanDrawable : Drawable() {
     }
 
     override fun setAlpha(alpha: Int) { paint.alpha = alpha }
-    override fun getOpacity(): Int = android.graphics.PixelFormat.OPAQUE
-    override fun setColorFilter(colorFilter: android.graphics.ColorFilter?) { paint.colorFilter = colorFilter }
+    @Deprecated("Deprecated in Android")
+    override fun getOpacity(): Int = PixelFormat.TRANSLUCENT
+    override fun setColorFilter(colorFilter: ColorFilter?) { paint.colorFilter = colorFilter }
 }

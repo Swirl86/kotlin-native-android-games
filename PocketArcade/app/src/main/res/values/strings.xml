@@ -21,6 +21,7 @@
     <string name="letter">Letter</string>
     <string name="guess">Guess</string>
     <string name="hangman_image">Hangman image</string>
+    <string name="hangman_incorrect">Incorrect: %1$d / %2$d</string>
 
     <!-- Buttons -->
     <string name="start_game">Start Game</string>

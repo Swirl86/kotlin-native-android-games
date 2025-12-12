@@ -39,7 +39,11 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
     private fun setupObservers() {
         viewModel.status.observe(viewLifecycleOwner, Observer { status ->
             binding.tvWord.text = status.currentProgress
-            binding.tvGuessed.text = "Incorrect: ${status.incorrectGuesses} / ${status.maxIncorrectGuesses}"
+            binding.tvGuessed.text = getString(
+                R.string.hangman_incorrect,
+                status.incorrectGuesses,
+                status.maxIncorrectGuesses
+            )
 
             // Disable all letters if game over
             for (i in 0 until binding.gridLetters.childCount) {
