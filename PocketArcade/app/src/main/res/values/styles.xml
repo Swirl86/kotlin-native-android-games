@@ -2,16 +2,25 @@
 <resources>
     <!-- Retro Arcade Text Style -->
     <style name="ArcadeTitle">
-        <item name="android:fontFamily">@font/pixelify_family</item>
+        <item name="android:fontFamily">@font/pixelify_sans_regular</item>
         <item name="android:textColor">#00FFAA</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">36sp</item>
     </style>
 
+    <style name="ArcadeGameTitle" parent="ArcadeTitle">
+        <item name="android:fontFamily">@font/pixelify_sans_regular</item>
+        <item name="android:shadowColor">#FF00FF</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">6</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="ArcadeText">
         <item name="android:textColor">#FFCC00</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">@font/pixelify_family</item>
+        <item name="android:fontFamily">@font/pixelify_sans_regular</item>
     </style>
 
     <style name="ArcadeTextSmall" parent="ArcadeText">
@@ -27,7 +36,7 @@
     </style>
 
     <style name="ArcadeButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:fontFamily">@font/pixelify_family</item>
+        <item name="android:fontFamily">@font/pixelify_sans_regular</item>
         <item name="android:textColor">#FFD700</item>
         <item name="android:background">@drawable/btn_arcade</item>
         <item name="android:shadowColor">#00FFFF</item>
@@ -39,6 +48,7 @@
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <!-- App components -->

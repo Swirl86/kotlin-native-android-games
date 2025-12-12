@@ -24,14 +24,10 @@
         <!-- Game Title -->
         <TextView
             android:id="@+id/tvTicTacToeTitle"
-            style="@style/ArcadeTitle"
+            style="@style/ArcadeGameTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:shadowColor="#FF00FF"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="6"
             android:text="@string/tic_tac_toe_title" />
 
         <!-- Turn Indicator -->
@@ -84,11 +80,7 @@
     <!-- Close Button top-right -->
     <ImageButton
         android:id="@+id/btn_close"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/btn_close_bg"
-        android:padding="8dp"
-        android:src="@drawable/ic_close"
+        style="@style/Widget.App.CloseButton"
         android:contentDescription="@string/close_game"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

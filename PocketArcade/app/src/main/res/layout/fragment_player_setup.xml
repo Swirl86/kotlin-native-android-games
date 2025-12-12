@@ -94,11 +94,7 @@
     <!-- Close Button top-right -->
     <ImageButton
         android:id="@+id/btn_close"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/btn_close_bg"
-        android:padding="8dp"
-        android:src="@drawable/ic_close"
+        style="@style/Widget.App.CloseButton"
         android:contentDescription="@string/close_game"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
