@@ -4,11 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.swirl.pocketarcade.hangman.model.GuessResult
+import com.swirl.pocketarcade.hangman.model.HangmanPart
 import com.swirl.pocketarcade.hangman.model.HangmanStatus
+import com.swirl.pocketarcade.utils.HangmanUtils
 
 class HangmanViewModel(maxIncorrectGuesses: Int = 6) : ViewModel() {
 
     private val game = HangmanGame(maxIncorrectGuesses)
+
+    private val _visibleParts = MutableLiveData<List<HangmanPart>>(emptyList())
+    val visibleParts: LiveData<List<HangmanPart>> = _visibleParts
 
     private val _status = MutableLiveData(getStatus())
     val status: LiveData<HangmanStatus> = _status
@@ -18,6 +23,7 @@ class HangmanViewModel(maxIncorrectGuesses: Int = 6) : ViewModel() {
 
     fun guessLetter(letter: Char): GuessResult {
         val result = game.guess(letter)
+        updateVisibleParts()
         _status.value = getStatus()
         return result
     }
@@ -25,6 +31,20 @@ class HangmanViewModel(maxIncorrectGuesses: Int = 6) : ViewModel() {
     fun resetGame() {
         game.reset()
         _status.value = getStatus()
+        _visibleParts.value = emptyList()
+    }
+
+    private fun updateVisibleParts() {
+        val parts = HangmanUtils.getPartsForIncorrectGuess(
+            incorrectGuesses = game.incorrectGuesses,
+            maxIncorrectGuesses = game.getMaxIncorrectGuesses()
+        ).toMutableList()
+
+        if (game.isGameOver() && HangmanPart.FACE !in parts) {
+            parts.add(HangmanPart.FACE)
+        }
+
+        _visibleParts.value = parts
     }
 
     private fun getStatus(): HangmanStatus {

@@ -18,9 +18,14 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
     private var _binding: FragmentHangmanBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var hangmanDrawable: HangmanDrawable
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHangmanBinding.bind(view)
+
+        hangmanDrawable = HangmanDrawable()
+        binding.ivHangman.setImageDrawable(hangmanDrawable)
 
         setupLetterButtons()
         setupObservers()
@@ -39,6 +44,10 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
             // Disable all letters if game over
             for (i in 0 until binding.gridLetters.childCount) {
                 binding.gridLetters.getChildAt(i).isEnabled = !status.isGameOver
+            }
+
+            viewModel.visibleParts.observe(viewLifecycleOwner) { parts ->
+                hangmanDrawable.setVisibleParts(parts)
             }
 
             if (status.isGameOver) {

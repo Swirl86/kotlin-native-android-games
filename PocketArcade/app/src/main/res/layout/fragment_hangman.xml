@@ -8,6 +8,15 @@
     android:orientation="vertical"
     android:padding="32dp">
 
+    <!-- Hangman drawing -->
+    <ImageView
+        android:id="@+id/iv_hangman"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:contentDescription="@string/hangman_image"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Word -->
     <TextView
         android:id="@+id/tv_word"
         android:layout_width="wrap_content"
@@ -18,6 +27,7 @@
         android:textSize="36sp"
         android:textStyle="bold" />
 
+    <!-- Guessed letters -->
     <TextView
         android:id="@+id/tv_guessed"
         android:layout_width="wrap_content"
@@ -27,6 +37,7 @@
         android:textSize="18sp"
         tools:text="Guessed: " />
 
+    <!-- Letter buttons -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -40,6 +51,7 @@
             android:layout_marginTop="16dp"/>
     </ScrollView>
 
+    <!-- Reset button -->
     <Button
         android:id="@+id/btn_reset"
         android:layout_width="wrap_content"

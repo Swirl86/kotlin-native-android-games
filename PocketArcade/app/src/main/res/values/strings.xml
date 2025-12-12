@@ -20,6 +20,7 @@
     <string name="hangman">Hangman</string>
     <string name="letter">Letter</string>
     <string name="guess">Guess</string>
+    <string name="hangman_image">Hangman image</string>
 
     <!-- Buttons -->
     <string name="start_game">Start Game</string>
