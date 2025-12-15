@@ -1,6 +1,6 @@
 package com.swirl.pocketarcade.utils
 
-import com.swirl.pocketarcade.hangman.model.HangmanPart
+import com.swirl.pocketarcade.games.hangman.model.HangmanPart
 
 object HangmanUtils {
 

@@ -1,12 +1,11 @@
-package com.swirl.pocketarcade.tictactoe
+package com.swirl.pocketarcade.games.tictactoe
 
-import TicTacToeGame
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.swirl.pocketarcade.ai.TicTacToeAI
-import com.swirl.pocketarcade.tictactoe.model.Player
-import com.swirl.pocketarcade.tictactoe.model.PlayerType
+import com.swirl.pocketarcade.games.tictactoe.model.Player
+import com.swirl.pocketarcade.games.tictactoe.model.PlayerType
 import com.swirl.pocketarcade.utils.components.combineLiveData
 
 class TicTacToeViewModel(

@@ -1,14 +1,14 @@
-package com.swirl.pocketarcade.setup
+package com.swirl.pocketarcade.games.tictactoe.setup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.swirl.pocketarcade.tictactoe.model.Moves
-import com.swirl.pocketarcade.tictactoe.model.Player
-import com.swirl.pocketarcade.tictactoe.model.PlayerType
+import com.swirl.pocketarcade.games.tictactoe.model.Moves
+import com.swirl.pocketarcade.games.tictactoe.model.Player
+import com.swirl.pocketarcade.games.tictactoe.model.PlayerType
 import com.swirl.pocketarcade.utils.TicTacToeUtils
 
-class PlayerSetupViewModel : ViewModel() {
+class TttPlayerSetupViewModel : ViewModel() {
     private val _numPlayers = MutableLiveData(1)
     val numPlayers: LiveData<Int> = _numPlayers
 

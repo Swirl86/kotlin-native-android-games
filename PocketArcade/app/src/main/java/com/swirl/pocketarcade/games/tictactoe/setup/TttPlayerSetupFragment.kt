@@ -1,4 +1,4 @@
-package com.swirl.pocketarcade.setup
+package com.swirl.pocketarcade.games.tictactoe.setup
 
 import android.os.Bundle
 import android.view.View
@@ -7,23 +7,23 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.swirl.pocketarcade.R
-import com.swirl.pocketarcade.databinding.FragmentPlayerSetupBinding
-import com.swirl.pocketarcade.tictactoe.model.PlayerType
+import com.swirl.pocketarcade.databinding.FragmentTttPlayerSetupBinding
+import com.swirl.pocketarcade.games.tictactoe.model.PlayerType
 
-class PlayerSetupFragment : Fragment(R.layout.fragment_player_setup) {
+class TttPlayerSetupFragment : Fragment(R.layout.fragment_ttt_player_setup) {
 
-    private var _binding: FragmentPlayerSetupBinding? = null
+    private var _binding: FragmentTttPlayerSetupBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: PlayerSetupViewModel by viewModels()
+    private val viewModel: TttPlayerSetupViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentPlayerSetupBinding.bind(view)
+        _binding = FragmentTttPlayerSetupBinding.bind(view)
 
         val closeButton = binding.btnClose
         closeButton.setOnClickListener {
-            findNavController().navigate(R.id.action_playerSetup_to_menuFragment)
+            findNavController().navigate(R.id.action_tttPlayerSetup_to_menuFragment)
         }
 
         // Observers
@@ -56,7 +56,7 @@ class PlayerSetupFragment : Fragment(R.layout.fragment_player_setup) {
 
         // Start game button
         binding.btnStartGame.setOnClickListener {
-            val action = PlayerSetupFragmentDirections.actionPlayerSetupToTicTacToe(
+            val action = TttPlayerSetupFragmentDirections.Companion.actionTttPlayerSetupToTicTacToe(
                 player1 = viewModel.player1.value!!,
                 player2 = viewModel.player2.value!!
             )

@@ -1,20 +1,15 @@
 package com.swirl.pocketarcade
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import com.swirl.pocketarcade.tictactoe.TicTacToeViewModel
-import com.swirl.pocketarcade.tictactoe.model.Moves
-import com.swirl.pocketarcade.tictactoe.model.Player
-import com.swirl.pocketarcade.tictactoe.model.PlayerType
+import com.swirl.pocketarcade.games.tictactoe.TicTacToeViewModel
+import com.swirl.pocketarcade.games.tictactoe.model.Moves
+import com.swirl.pocketarcade.games.tictactoe.model.Player
+import com.swirl.pocketarcade.games.tictactoe.model.PlayerType
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
 
 @RunWith(JUnit4::class)
 class TicTacToeViewModelTest {

@@ -1,4 +1,6 @@
-import com.swirl.pocketarcade.tictactoe.model.Player
+package com.swirl.pocketarcade.games.tictactoe
+
+import com.swirl.pocketarcade.games.tictactoe.model.Player
 import com.swirl.pocketarcade.utils.TicTacToeUtils
 
 class TicTacToeGame(

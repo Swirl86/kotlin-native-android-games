@@ -19,7 +19,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
 
         binding.btnTictactoe.setOnClickListener {
             it.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.btn_bounce))
-            findNavController().navigate(R.id.action_menu_to_playerSetup)
+            findNavController().navigate(R.id.action_menu_to_tttPlayerSetup)
         }
 
         binding.btnHangman.setOnClickListener {

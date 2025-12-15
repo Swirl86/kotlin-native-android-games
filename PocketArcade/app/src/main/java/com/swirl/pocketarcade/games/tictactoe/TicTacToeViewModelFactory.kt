@@ -1,8 +1,8 @@
-package com.swirl.pocketarcade.tictactoe
+package com.swirl.pocketarcade.games.tictactoe
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.swirl.pocketarcade.tictactoe.model.Player
+import com.swirl.pocketarcade.games.tictactoe.model.Player
 
 class TicTacToeViewModelFactory(
     private val player1: Player,

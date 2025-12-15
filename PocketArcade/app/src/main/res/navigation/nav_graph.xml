@@ -10,44 +10,44 @@
         android:name="com.swirl.pocketarcade.menu.MenuFragment"
         android:label="Menu">
         <action
-            android:id="@+id/action_menu_to_playerSetup"
-            app:destination="@id/playerSetupFragment"/>
+            android:id="@+id/action_menu_to_tttPlayerSetup"
+            app:destination="@id/tttPlayerSetupFragment"/>
         <action
             android:id="@+id/action_menu_to_hangman"
             app:destination="@id/hangmanFragment" />
     </fragment>
 
-    <!-- PlayerSetupFragment -->
+    <!-- TttPlayerSetupFragment -->
     <fragment
-        android:id="@+id/playerSetupFragment"
-        android:name="com.swirl.pocketarcade.setup.PlayerSetupFragment"
+        android:id="@+id/tttPlayerSetupFragment"
+        android:name="com.swirl.pocketarcade.games.tictactoe.setup.TttPlayerSetupFragment"
         android:label="Player Setup">
         <action
-            android:id="@+id/action_playerSetup_to_ticTacToe"
+            android:id="@+id/action_tttPlayerSetup_to_ticTacToe"
             app:destination="@id/ticTacToeFragment">
             <argument
                 android:name="player1"
-                app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+                app:argType="com.swirl.pocketarcade.games.tictactoe.model.Player" />
             <argument
                 android:name="player2"
-                app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+                app:argType="com.swirl.pocketarcade.games.tictactoe.model.Player" />
         </action>
         <action
-            android:id="@+id/action_playerSetup_to_menuFragment"
+            android:id="@+id/action_tttPlayerSetup_to_menuFragment"
             app:destination="@id/menuFragment"/>
     </fragment>
 
     <!-- TicTacToeFragment -->
     <fragment
         android:id="@+id/ticTacToeFragment"
-        android:name="com.swirl.pocketarcade.tictactoe.TicTacToeFragment"
+        android:name="com.swirl.pocketarcade.games.tictactoe.TicTacToeFragment"
         android:label="Tic Tac Toe">
         <argument
             android:name="player1"
-            app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+            app:argType="com.swirl.pocketarcade.games.tictactoe.model.Player" />
         <argument
             android:name="player2"
-            app:argType="com.swirl.pocketarcade.tictactoe.model.Player" />
+            app:argType="com.swirl.pocketarcade.games.tictactoe.model.Player" />
         <action
             android:id="@+id/action_ticTacToeFragment_to_menuFragment"
             app:destination="@id/menuFragment"/>
@@ -56,7 +56,7 @@
     <!-- HangmanFragment -->
     <fragment
         android:id="@+id/hangmanFragment"
-        android:name="com.swirl.pocketarcade.hangman.HangmanFragment"
+        android:name="com.swirl.pocketarcade.games.hangman.HangmanFragment"
         android:label="Hangman">
         <action
             android:id="@+id/action_hangmanFragment_to_menuFragment"

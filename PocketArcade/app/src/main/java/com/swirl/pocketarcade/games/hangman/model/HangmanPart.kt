@@ -1,4 +1,4 @@
-package com.swirl.pocketarcade.hangman.model
+package com.swirl.pocketarcade.games.hangman.model
 
 enum class HangmanPart {
     BASE,

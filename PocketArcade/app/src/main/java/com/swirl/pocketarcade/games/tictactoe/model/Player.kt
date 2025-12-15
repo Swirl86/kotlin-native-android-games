@@ -1,4 +1,4 @@
-package com.swirl.pocketarcade.tictactoe.model
+package com.swirl.pocketarcade.games.tictactoe.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

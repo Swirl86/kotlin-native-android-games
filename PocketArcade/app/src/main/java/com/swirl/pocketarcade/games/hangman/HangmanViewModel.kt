@@ -1,11 +1,11 @@
-package com.swirl.pocketarcade.hangman
+package com.swirl.pocketarcade.games.hangman
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.swirl.pocketarcade.hangman.model.GuessResult
-import com.swirl.pocketarcade.hangman.model.HangmanPart
-import com.swirl.pocketarcade.hangman.model.HangmanStatus
+import com.swirl.pocketarcade.games.hangman.model.GuessResult
+import com.swirl.pocketarcade.games.hangman.model.HangmanPart
+import com.swirl.pocketarcade.games.hangman.model.HangmanStatus
 import com.swirl.pocketarcade.utils.HangmanUtils
 
 class HangmanViewModel(maxIncorrectGuesses: Int = 6) : ViewModel() {

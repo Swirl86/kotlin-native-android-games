@@ -1,9 +1,12 @@
 package com.swirl.pocketarcade.ai
 
-import TicTacToeGame
-import com.swirl.pocketarcade.tictactoe.model.Moves
+import com.swirl.pocketarcade.games.tictactoe.TicTacToeGame
+import com.swirl.pocketarcade.games.tictactoe.model.Moves
 import com.swirl.pocketarcade.utils.TicTacToeUtils
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Simple AI for TicTacToe.

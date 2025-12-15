@@ -1,4 +1,4 @@
-package com.swirl.pocketarcade.hangman
+package com.swirl.pocketarcade.games.hangman
 
 import android.os.Bundle
 import android.view.View

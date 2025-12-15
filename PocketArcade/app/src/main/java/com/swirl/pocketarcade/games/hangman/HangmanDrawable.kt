@@ -1,4 +1,4 @@
-package com.swirl.pocketarcade.hangman
+package com.swirl.pocketarcade.games.hangman
 
 import android.graphics.Canvas
 import android.graphics.Color
@@ -6,7 +6,7 @@ import android.graphics.ColorFilter
 import android.graphics.Paint
 import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
-import com.swirl.pocketarcade.hangman.model.HangmanPart
+import com.swirl.pocketarcade.games.hangman.model.HangmanPart
 
 class HangmanDrawable : Drawable() {
 

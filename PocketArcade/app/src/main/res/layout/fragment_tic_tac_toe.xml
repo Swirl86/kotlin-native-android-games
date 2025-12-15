@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#050543"
     android:padding="32dp"
-    tools:context=".tictactoe.TicTacToeFragment">
+    tools:context=".games.tictactoe.TicTacToeFragment">
 
     <!-- Centered Main Content -->
     <LinearLayout

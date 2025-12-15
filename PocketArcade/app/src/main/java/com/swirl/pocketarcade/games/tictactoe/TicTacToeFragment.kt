@@ -1,4 +1,4 @@
-package com.swirl.pocketarcade.tictactoe
+package com.swirl.pocketarcade.games.tictactoe
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.swirl.pocketarcade.R
 import com.swirl.pocketarcade.databinding.FragmentTicTacToeBinding
-import com.swirl.pocketarcade.tictactoe.model.Player
+import com.swirl.pocketarcade.games.tictactoe.model.Player
 
 class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
 
@@ -16,7 +16,7 @@ class TicTacToeFragment : Fragment(R.layout.fragment_tic_tac_toe) {
     private val binding get() = _binding!!
 
     private val viewModel: TicTacToeViewModel by viewModels {
-        val args = TicTacToeFragmentArgs.fromBundle(requireArguments())
+        val args = TicTacToeFragmentArgs.Companion.fromBundle(requireArguments())
         val player1: Player = args.player1
         val player2: Player = args.player2
         TicTacToeViewModelFactory(player1, player2)

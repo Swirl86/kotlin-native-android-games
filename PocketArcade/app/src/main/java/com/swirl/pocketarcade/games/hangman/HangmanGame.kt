@@ -1,6 +1,6 @@
-package com.swirl.pocketarcade.hangman
+package com.swirl.pocketarcade.games.hangman
 
-import com.swirl.pocketarcade.hangman.model.GuessResult
+import com.swirl.pocketarcade.games.hangman.model.GuessResult
 
 class HangmanGame(
     private val maxIncorrectGuesses: Int
