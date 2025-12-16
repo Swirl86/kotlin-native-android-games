@@ -21,9 +21,17 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
 
     private lateinit var hangmanDrawable: HangmanDrawable
 
+    private var maxIncorrectGuesses: Int = 6
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHangmanBinding.bind(view)
+
+        arguments?.let { bundle ->
+            maxIncorrectGuesses = HangmanFragmentArgs.fromBundle(bundle).maxIncorrectGuesses
+        }
+
+        viewModel.startNewGame(maxIncorrectGuesses)
 
         hangmanDrawable = HangmanDrawable()
         binding.ivHangman.setImageDrawable(hangmanDrawable)
@@ -32,7 +40,7 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
         setupObservers()
 
         binding.btnReset.setOnClickListener {
-            viewModel.resetGame()
+            viewModel.resetGame(maxIncorrectGuesses)
             resetLetterButtons()
         }
 

@@ -35,6 +35,16 @@
         <item name="android:textSize">36sp</item>
     </style>
 
+    <style name="ArcadeEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:fontFamily">@font/pixelify_sans_regular</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColorHint">#88FFFFFF</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
     <style name="ArcadeButton" parent="Widget.MaterialComponents.Button">
         <item name="android:fontFamily">@font/pixelify_sans_regular</item>
         <item name="android:textColor">#FFD700</item>
@@ -49,6 +59,15 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ArcadeRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:fontFamily">@font/pixelify_sans_regular</item>
+        <item name="android:textColor">#FFCC00</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:buttonTint">#00FFAA</item>
     </style>
 
     <!-- App components -->

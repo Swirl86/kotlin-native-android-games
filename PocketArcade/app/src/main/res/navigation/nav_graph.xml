@@ -13,8 +13,8 @@
             android:id="@+id/action_menu_to_tttPlayerSetup"
             app:destination="@id/tttPlayerSetupFragment"/>
         <action
-            android:id="@+id/action_menu_to_hangman"
-            app:destination="@id/hangmanFragment" />
+            android:id="@+id/action_menu_to_hangmanSetup"
+            app:destination="@id/hangmanSetupFragment" />
     </fragment>
 
     <!-- TttPlayerSetupFragment -->
@@ -53,11 +53,36 @@
             app:destination="@id/menuFragment"/>
     </fragment>
 
+    <!-- HangmanSetupFragment -->
+    <fragment
+        android:id="@+id/hangmanSetupFragment"
+        android:name="com.swirl.pocketarcade.games.hangman.setup.HangmanSetupFragment">
+        <action
+            android:id="@+id/action_hangmanSetupFragment_to_hangmanFragment"
+            app:destination="@id/hangmanFragment">
+            <argument
+                android:name="playerName"
+                app:argType="string" />
+            <argument
+                android:name="maxIncorrectGuesses"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_hangmanSetupFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
     <!-- HangmanFragment -->
     <fragment
         android:id="@+id/hangmanFragment"
         android:name="com.swirl.pocketarcade.games.hangman.HangmanFragment"
         android:label="Hangman">
+        <argument
+            android:name="playerName"
+            app:argType="string" />
+        <argument
+            android:name="maxIncorrectGuesses"
+            app:argType="integer" />
         <action
             android:id="@+id/action_hangmanFragment_to_menuFragment"
             app:destination="@id/menuFragment"/>

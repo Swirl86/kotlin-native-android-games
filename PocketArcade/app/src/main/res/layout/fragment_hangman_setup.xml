@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050543"
+    android:padding="32dp">
+
+    <!-- Centered Content -->
+    <LinearLayout
+        android:id="@+id/linear_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Player name -->
+        <TextView
+            style="@style/ArcadeTextMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_player_name"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/et_player_name"
+            style="@style/ArcadeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/player_name"
+            android:inputType="textPersonName"
+            android:maxLength="16"/>
+
+        <!-- Difficulty label -->
+        <TextView
+            style="@style/ArcadeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#FF00FF"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="@string/select_difficulty"
+            android:layout_marginVertical="12dp"/>
+
+
+        <!-- Difficulty selection -->
+        <RadioGroup
+            android:id="@+id/rg_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_4"
+                style="@style/ArcadeRadioButton"
+                android:text="@string/very_hard"/>
+
+            <RadioButton
+                android:id="@+id/rb_6"
+                style="@style/ArcadeRadioButton"
+                android:text="@string/hard"/>
+
+            <RadioButton
+                android:id="@+id/rb_8"
+                style="@style/ArcadeRadioButton"
+                android:text="@string/normal"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/rb_10"
+                style="@style/ArcadeRadioButton"
+                android:text="@string/easy"/>
+
+            <RadioButton
+                android:id="@+id/rb_11"
+                style="@style/ArcadeRadioButton"
+                android:text="@string/very_easy"/>
+        </RadioGroup>
+
+        <!-- Start button -->
+        <Button
+            android:id="@+id/btn_start_game"
+            style="@style/ArcadeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/start_game" />
+    </LinearLayout>
+
+    <!-- Close Button top-right -->
+    <ImageButton
+        android:id="@+id/btn_close"
+        style="@style/Widget.App.CloseButton"
+        android:contentDescription="@string/close_game"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
