@@ -81,4 +81,16 @@ object HangmanUtils {
 
         return steps.take(incorrectGuesses.coerceAtMost(steps.size)).flatten()
     }
+
+    private val defaultWords = listOf(
+        "KOTLIN",
+        "ANDROID",
+        "HANGMAN",
+        "COMPOSE",
+        "FRAGMENT",
+        "RECYCLER",
+        "VIEWMODEL"
+    )
+
+    fun getRandomDefaultWord(): String = defaultWords.random()
 }

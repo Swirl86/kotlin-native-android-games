@@ -3,17 +3,12 @@ package com.swirl.pocketarcade.games.hangman
 import com.swirl.pocketarcade.games.hangman.model.GuessResult
 
 class HangmanGame(
+    private val word: String,
     private val maxIncorrectGuesses: Int
 ) {
-    private var word: String = generateWord()
     private val guessedLetters = mutableSetOf<Char>()
     var incorrectGuesses = 0
         private set
-
-    companion object {
-        private val words = listOf("KOTLIN", "ANDROID", "HANGMAN", "COMPOSE", "FRAGMENT")
-        fun generateWord(): String = words.random()
-    }
 
     fun guess(letter: Char): GuessResult {
         val upperLetter = letter.uppercaseChar()
@@ -34,8 +29,7 @@ class HangmanGame(
     fun isGameOver(): Boolean = incorrectGuesses >= maxIncorrectGuesses || isWon()
     fun isWon(): Boolean = word.uppercase().all { guessedLetters.contains(it) }
 
-    fun reset(newWord: String = generateWord()) {
-        word = newWord
+    fun reset() {
         guessedLetters.clear()
         incorrectGuesses = 0
     }

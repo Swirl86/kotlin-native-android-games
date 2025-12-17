@@ -12,7 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.swirl.pocketarcade.R
 import com.swirl.pocketarcade.databinding.FragmentHangmanBinding
 import com.swirl.pocketarcade.utils.HangmanUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HangmanFragment : Fragment(R.layout.fragment_hangman) {
 
     private val viewModel: HangmanViewModel by viewModels()
@@ -50,6 +52,10 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
     }
 
     private fun setupObservers() {
+        viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
+            binding.loadingOverlay.visibility = if (loading) View.VISIBLE else View.GONE
+        }
+
         viewModel.visibleParts.observe(viewLifecycleOwner) { parts ->
             hangmanDrawable.setVisibleParts(parts)
         }
