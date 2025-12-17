@@ -2,5 +2,14 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
+
+    // Hilt
+    alias(libs.plugins.hilt) apply false
+
+    // Kotlin plugins
+    alias(libs.plugins.kotlin.serialization) apply false
     id("org.jetbrains.kotlin.plugin.parcelize") version libs.versions.kotlin apply false
+
+    // KSP
+    alias(libs.plugins.ksp) apply false
 }
