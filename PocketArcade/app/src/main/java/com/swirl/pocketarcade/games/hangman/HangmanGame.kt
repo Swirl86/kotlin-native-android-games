@@ -1,39 +1,30 @@
 package com.swirl.pocketarcade.games.hangman
 
 import com.swirl.pocketarcade.games.hangman.model.GuessResult
+import com.swirl.pocketarcade.games.hangman.model.HangmanGameState
 
-class HangmanGame(
-    private val word: String,
-    private val maxIncorrectGuesses: Int
-) {
-    private val guessedLetters = mutableSetOf<Char>()
-    var incorrectGuesses = 0
-        private set
+class HangmanGame {
 
-    fun guess(letter: Char): GuessResult {
-        val upperLetter = letter.uppercaseChar()
-        if (guessedLetters.contains(upperLetter)) return GuessResult.ALREADY_GUESSED
+    fun guess(
+        state: HangmanGameState,
+        letter: Char
+    ): Pair<HangmanGameState, GuessResult> {
 
-        guessedLetters.add(upperLetter)
-        return if (word.uppercase().contains(upperLetter)) GuessResult.CORRECT
-        else {
-            incorrectGuesses++
-            GuessResult.INCORRECT
+        val upper = letter.uppercaseChar()
+
+        if (state.guessedLetters.contains(letter)) {
+            return state to GuessResult.ALREADY_GUESSED
+        }
+
+        val newGuessed = state.guessedLetters + upper
+
+        return if (state.word.contains(upper)) {
+            state.copy(guessedLetters = newGuessed) to GuessResult.CORRECT
+        } else {
+            state.copy(
+                guessedLetters = newGuessed,
+                incorrectGuesses = state.incorrectGuesses + 1
+            ) to GuessResult.INCORRECT
         }
     }
-
-    fun getCurrentProgress(): String =
-        word.map { if (guessedLetters.contains(it.uppercaseChar())) it else '_' }
-            .joinToString(" ")
-
-    fun isGameOver(): Boolean = incorrectGuesses >= maxIncorrectGuesses || isWon()
-    fun isWon(): Boolean = word.uppercase().all { guessedLetters.contains(it) }
-
-    fun reset() {
-        guessedLetters.clear()
-        incorrectGuesses = 0
-    }
-
-    fun getFullWord(): String = word
-    fun getMaxIncorrectGuesses(): Int = maxIncorrectGuesses
 }
