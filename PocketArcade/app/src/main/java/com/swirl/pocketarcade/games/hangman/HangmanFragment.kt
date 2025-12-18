@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -86,6 +87,8 @@ class HangmanFragment : Fragment(R.layout.fragment_hangman) {
                 setOnClickListener {
                     viewModel.guessLetter(letter)
                     isEnabled = false
+                    setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
+                    setTextColor(ContextCompat.getColor(context, R.color.white))
                 }
             }
             binding.gridLetters.addView(button)
