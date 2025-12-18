@@ -69,10 +69,13 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     // --- Testing ---
-    implementation(libs.androidx.junit.ktx)
-    testImplementation(libs.core.testing)
     testImplementation(libs.junit)
+    testImplementation(libs.core.testing)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.junit.ktx)
     androidTestImplementation(libs.androidx.espresso.core)
 
     // --- Hilt ---
