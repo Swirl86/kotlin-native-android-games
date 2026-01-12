@@ -39,19 +39,16 @@
         android:layout_marginTop="16dp"
         style="@style/ArcadeButton"/>
 
-    <!-- Dummy buttons -->
     <Button
-        android:id="@+id/btn_dummy1"
+        android:id="@+id/btn_memory"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="Coming soon..."
-        android:enabled="false"
-        android:background="#333"
+        android:text="Memory"
         android:layout_marginTop="16dp"
-        style="@style/ArcadeText" />
+        style="@style/ArcadeButton"/>
 
     <Button
-        android:id="@+id/btn_dummy2"
+        android:id="@+id/btn_dummy1"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:text="Coming soon..."

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/menuFragment">
 
@@ -8,20 +9,25 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.swirl.pocketarcade.menu.MenuFragment"
-        android:label="Menu">
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menu_to_tttPlayerSetup"
             app:destination="@id/tttPlayerSetupFragment"/>
         <action
             android:id="@+id/action_menu_to_hangmanSetup"
             app:destination="@id/hangmanSetupFragment" />
+        <action
+            android:id="@+id/action_menu_to_MemoryFragment"
+            app:destination="@id/memoryFragment"/>
     </fragment>
 
     <!-- TttPlayerSetupFragment -->
     <fragment
         android:id="@+id/tttPlayerSetupFragment"
         android:name="com.swirl.pocketarcade.games.tictactoe.setup.TttPlayerSetupFragment"
-        android:label="Player Setup">
+        android:label="Player Setup"
+        tools:layout="@layout/fragment_ttt_player_setup">
         <action
             android:id="@+id/action_tttPlayerSetup_to_ticTacToe"
             app:destination="@id/ticTacToeFragment">
@@ -41,7 +47,8 @@
     <fragment
         android:id="@+id/ticTacToeFragment"
         android:name="com.swirl.pocketarcade.games.tictactoe.TicTacToeFragment"
-        android:label="Tic Tac Toe">
+        android:label="Tic Tac Toe"
+        tools:layout="@layout/fragment_tic_tac_toe">
         <argument
             android:name="player1"
             app:argType="com.swirl.pocketarcade.games.tictactoe.model.Player" />
@@ -56,7 +63,8 @@
     <!-- HangmanSetupFragment -->
     <fragment
         android:id="@+id/hangmanSetupFragment"
-        android:name="com.swirl.pocketarcade.games.hangman.setup.HangmanSetupFragment">
+        android:name="com.swirl.pocketarcade.games.hangman.setup.HangmanSetupFragment"
+        tools:layout="@layout/fragment_hangman_setup">
         <action
             android:id="@+id/action_hangmanSetupFragment_to_hangmanFragment"
             app:destination="@id/hangmanFragment">
@@ -76,7 +84,8 @@
     <fragment
         android:id="@+id/hangmanFragment"
         android:name="com.swirl.pocketarcade.games.hangman.HangmanFragment"
-        android:label="Hangman">
+        android:label="Hangman"
+        tools:layout="@layout/fragment_hangman">
         <argument
             android:name="playerName"
             app:argType="string" />
@@ -87,4 +96,11 @@
             android:id="@+id/action_hangmanFragment_to_menuFragment"
             app:destination="@id/menuFragment"/>
     </fragment>
+
+    <!-- MemoryFragment -->
+    <fragment
+        android:id="@+id/memoryFragment"
+        android:name="com.swirl.pocketarcade.games.memory.MemoryFragment"
+        android:label="Memory Game"
+        tools:layout="@layout/fragment_memory"/>
 </navigation>

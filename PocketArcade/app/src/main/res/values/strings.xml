@@ -4,6 +4,7 @@
     <!-- Game Global -->
     <string name="you_won">You won!</string>
     <string name="game_over">Game over!</string>
+    <string name="game_over_caps">GAME OVER!</string>
 
     <!-- Game Setup Tic Tace Toe-->
     <string name="number_of_players">Number of Players</string>
@@ -32,6 +33,9 @@
     <string name="guess">Guess</string>
     <string name="hangman_image">Hangman image</string>
     <string name="hangman_incorrect">Incorrect: %1$d / %2$d</string>
+
+    <!-- Memory -->
+    <string name="memory">Memory</string>
 
     <!-- Buttons -->
     <string name="start_game">Start Game</string>

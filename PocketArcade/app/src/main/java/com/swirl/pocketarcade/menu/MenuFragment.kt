@@ -26,6 +26,11 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             it.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.btn_bounce))
             findNavController().navigate(R.id.action_menu_to_hangmanSetup)
         }
+
+        binding.btnMemory.setOnClickListener {
+            it.startAnimation(AnimationUtils.loadAnimation(requireContext(), R.anim.btn_bounce))
+            findNavController().navigate(R.id.action_menu_to_MemoryFragment)
+        }
     }
 
     override fun onDestroyView() {

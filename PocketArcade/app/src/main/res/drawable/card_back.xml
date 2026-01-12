@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <path
+        android:fillColor="#1A1A7A"
+    android:pathData="M0,0h64v64h-64z"/>
+
+    <!-- Outer neon glow ring -->
+    <path
+        android:fillColor="#00FFAA"
+        android:pathData="
+            M32,8
+            A24,24 0 1,1 31.9,8
+            Z
+            M32,14
+            A18,18 0 1,0 32,14
+            Z"/>
+
+    <!-- Inner core -->
+    <path
+        android:fillColor="#FFCC00"
+        android:pathData="M32,18a14,14 0 1,0 0,28a14,14 0 1,0 0,-28z"/>
+
+</vector>
